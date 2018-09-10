@@ -9,7 +9,7 @@
     },
     "es": {
       "presets": [
-        ["@inst-app/esx", {"modules": false}]
+        ["@inst-app/esx", {"env": {"modules": false}}]
       ]
     }
   }
