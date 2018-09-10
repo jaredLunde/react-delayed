@@ -1,6 +1,6 @@
 {
   "name": "@jaredlunde/react-delayed",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A higher order component which delays the rendering of its children for a user-defined amount of time.",
   "main": "cjs/index.js",
   "module": "es/index.js",
