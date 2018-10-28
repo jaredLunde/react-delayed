@@ -49,6 +49,6 @@ export default Component => class delayed extends React.Component {
 
   render () {
     const {eachUpdate, by, ...props} = this.props
-    return this.state.shouldDisplay && Component({cancel: this.cancel, ...props})
+    return this.state.shouldDisplay && <Component cancel={this.cancel} {...props}/>
   }
 }
