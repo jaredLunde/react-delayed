@@ -1,6 +1,6 @@
 {
   "name": "@jaredlunde/react-delayed",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "description": "A higher order component which delays the rendering of its children for a user-defined amount of time.",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -11,14 +11,13 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
-    "@inst-app/babel-preset-esx": "^1.0.2",
-    "@inst-app/babel-preset-react": "^1.0.0",
+    "@stellar-apps/babel-preset-es": "^1.0.4",
+    "@stellar-apps/babel-preset-react": "^1.0.1",
     "prettier": "^1.14.2",
     "rimraf": "^2.6.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0",
-    "@render-props/utils": "^0.2.5"
+    "@render-props/utils": "^0.2.13"
   },
   "scripts": {
     "build": "yarn run build:es && yarn run build:cjs",
@@ -27,7 +26,8 @@
     "build-pub": "yarn run build && yarn publish --access public",
     "edit": "atom ./",
     "prettier:es": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma es5 --write \"dist/es/**/*.js\"",
-    "prettier:cjs": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma es5 --write \"dist/cjs/**/*.js\""
+    "prettier:cjs": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma es5 --write \"dist/cjs/**/*.js\"",
+    "prepublishOnly": "yarn build"
   },
   "peerDependencies": {
     "prop-types": ">= 15.6.0",

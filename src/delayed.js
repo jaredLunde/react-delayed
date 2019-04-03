@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {requestTimeout, clearRequestTimeout} from '@render-props/utils'
 
 
-export default Component => class delayed extends React.Component {
+class Delayed extends React.Component {
   static propTypes = {
     by: PropTypes.number.isRequired,
     eachUpdate: PropTypes.bool
@@ -18,7 +18,11 @@ export default Component => class delayed extends React.Component {
 
   constructor (props) {
     super(props)
-    this.setDelayTimeout(props)
+    this.cxt = {cancel: this.cancel}
+  }
+
+  componentDidMount () {
+    this.setDelayTimeout(this.props)
   }
 
   componentDidUpdate () {
@@ -48,7 +52,12 @@ export default Component => class delayed extends React.Component {
   }
 
   render () {
-    const {eachUpdate, by, ...props} = this.props
-    return this.state.shouldDisplay && <Component cancel={this.cancel} {...props}/>
+    const {eachUpdate, by, children, ...props} = this.props
+    return this.state.shouldDisplay && React.createElement(
+      children,
+      Object.assign(props, this.cxt)
+    )
   }
 }
+
+export default Component => props => <Delayed children={Component} {...props}/>

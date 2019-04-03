@@ -1,15 +1,34 @@
 {
   "presets": [
-    ["@inst-app/react", {"removePropTypes": false}]
+    ["@stellar-apps/react", {"removePropTypes":  false}]
   ],
-
   "env": {
     "cjs": {
-      "presets": ["@inst-app/esx"]
+      "presets": [
+        [
+          "@stellar-apps/es",
+          {
+            "env": {
+              "useBuiltIns": false,
+              "targets": {"browsers": ">5% in US"}
+            }
+          }
+        ]
+      ]
     },
     "es": {
       "presets": [
-        ["@inst-app/esx", {"env": {"modules": false}}]
+        [
+          "@stellar-apps/es",
+          {
+            "env": {
+              "useBuiltIns": false,
+              "modules": false,
+              "targets": {"browsers": ">5% in US"}
+            },
+            "runtime": {"useESModules": true}
+          }
+        ]
       ]
     }
   }
